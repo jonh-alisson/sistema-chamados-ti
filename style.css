@@ -1,0 +1,78 @@
+
+/* Configurações gerais */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* Título principal */
+h1 {
+    color: #1d4ed8;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    color: #64748b;
+}
+
+/* Área do formulário */
+h2 {
+    margin-top: 35px;
+    color: #334155;
+}
+
+form {
+    background-color: white;
+    max-width: 600px;
+    margin: 25px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Campos de preenchimento */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Botão */
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
