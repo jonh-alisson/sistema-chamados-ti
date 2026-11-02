@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Chamados - Sistema de TI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Sistema de Chamados de TI</h1>
+        <p>Consulta de solicitações de suporte técnico</p>
+    </header>
+
+    <main>
+        <h2>Chamados registrados</h2>
+
+        <a href="index.html" class="botao-voltar">
+            Voltar ao início
+        </a>
+
+        <div class="tabela-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Protocolo</th>
+                        <th>Solicitante</th>
+                        <th>Categoria</th>
+                        <th>Prioridade</th>
+                        <th>Data</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+
+                <tbody id="listaChamados">
+                </tbody>
+            </table>
+        </div>
+
+        <p id="mensagem"></p>
+    </main>
+
+    <script>
+        const chamados = JSON.parse(
+            localStorage.getItem("chamadosTI") || "[]"
+        );
+
+        const lista = document.getElementById("listaChamados");
+        const mensagem = document.getElementById("mensagem");
+
+        if (chamados.length === 0) {
+
+            mensagem.textContent = "Nenhum chamado registrado.";
+
+        } else {
+
+            chamados.forEach(chamado => {
+
+                const linha = document.createElement("tr");
+
+                [
+                    chamado.protocolo,
+                    chamado.nome,
+                    chamado.categoria,
+                    chamado.prioridade,
+                    chamado.data,
+                    chamado.descricao
+                ].forEach(valor => {
+
+                    const coluna = document.createElement("td");
+                    coluna.textContent = valor || "-";
+                    linha.appendChild(coluna);
+
+                });
+
+                lista.appendChild(linha);
+
+            });
+
+        }
+    </script>
+
+</body>
+</html>
