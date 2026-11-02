@@ -10,6 +10,7 @@ formulario.addEventListener("submit", function(event) {
         email: formulario.querySelector('input[type="email"]').value,
         categoria: document.querySelector("#categoria").value,
         prioridade: document.querySelector("#prioridade").value,
+        status: "Aberto",
         descricao: document.querySelector("#descricao").value,
         data: new Date().toLocaleString("pt-BR")
     };
