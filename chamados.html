@@ -121,8 +121,27 @@ valores.forEach((valor, indice) => {
 
 
                 
+const botaoExcluir = document.createElement("button");
+botaoExcluir.textContent = "Excluir";
 
-                lista.appendChild(linha);
+botaoExcluir.addEventListener("click", function() {
+    if (confirm("Tem certeza que deseja excluir este chamado?")) {
+        const indice = chamados.indexOf(chamado);
+        chamados.splice(indice, 1);
+
+        localStorage.setItem(
+            "chamadosTI",
+            JSON.stringify(chamados)
+        );
+
+        location.reload();
+    }
+});
+
+const colunaExcluir = document.createElement("td");
+colunaExcluir.appendChild(botaoExcluir);
+linha.appendChild(colunaExcluir);
+lista.appendChild(linha);
 
             });
 
