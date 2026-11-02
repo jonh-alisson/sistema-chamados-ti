@@ -48,6 +48,11 @@
         const chamados = JSON.parse(
             localStorage.getItem("chamadosTI") || "[]"
         );
+        chamados.forEach(chamado => {
+    if (!chamado.status) {
+        chamado.status = "Aberto";
+    }
+});
 
         const lista = document.getElementById("listaChamados");
         const mensagem = document.getElementById("mensagem");
