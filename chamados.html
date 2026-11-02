@@ -67,15 +67,60 @@
 
                 const linha = document.createElement("tr");
 
-                [
-                    chamado.protocolo,
-                    chamado.nome,
-                    chamado.categoria,
-                    chamado.prioridade,
-                    chamado.status,
-                    chamado.data,
-                    chamado.descricao
-                ].forEach(valor => {
+
+
+const valores = [
+    chamado.protocolo,
+    chamado.nome,
+    chamado.categoria,
+    chamado.prioridade,
+    chamado.status,
+    chamado.data,
+    chamado.descricao
+];
+
+valores.forEach((valor, indice) => {
+
+    const coluna = document.createElement("td");
+
+    if (indice === 4) {
+
+        const seletor = document.createElement("select");
+
+        const status = ["Aberto", "Em andamento", "Concluído"];
+
+        status.forEach(item => {
+            const opcao = document.createElement("option");
+            opcao.value = item;
+            opcao.textContent = item;
+            seletor.appendChild(opcao);
+        });
+
+        seletor.value = chamado.status || "Aberto";
+
+        seletor.addEventListener("change", function() {
+            chamado.status = seletor.value;
+
+            localStorage.setItem(
+                "chamadosTI",
+                JSON.stringify(chamados)
+            );
+        });
+
+        coluna.appendChild(seletor);
+
+    } else {
+
+        coluna.textContent = valor || "-";
+
+    }
+
+    linha.appendChild(coluna);
+
+});
+
+
+                
 
                     const coluna = document.createElement("td");
                     coluna.textContent = valor || "-";
