@@ -96,6 +96,17 @@
         chamado.status = "Aberto";
     }
 });
+       function atualizarIndicadores() {
+    document.getElementById("totalChamados").textContent = chamados.length;
+
+    document.getElementById("chamadosAndamento").textContent =
+        chamados.filter(chamado => chamado.status === "Em andamento").length;
+
+    document.getElementById("chamadosAbertos").textContent =
+        chamados.filter(chamado => chamado.status === "Aberto").length;
+}
+
+atualizarIndicadores(); 
 
         const lista = document.getElementById("listaChamados");
         const mensagem = document.getElementById("mensagem");
