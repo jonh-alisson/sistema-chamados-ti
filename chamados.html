@@ -407,6 +407,56 @@ const chamadosFiltrados = chamados.filter(chamado =>
     relatorio.document.write(conteudo);
     relatorio.document.close();
 }); 
+   document.getElementById("exportarExcel").addEventListener("click", function() {
+
+    const chamadosExportacao = JSON.parse(localStorage.getItem("chamadosTI")) || [];
+
+    if (chamadosExportacao.length === 0) {
+        alert("Não existem chamados para exportar.");
+        return;
+    }
+
+    const cabecalho = [
+        "Protocolo",
+        "Solicitante",
+        "Categoria",
+        "Prioridade",
+        "Status",
+        "Data",
+        "Descrição"
+    ];
+
+    const linhas = chamadosExportacao.map(chamado =>
+        [
+            chamado.protocolo,
+            chamado.nome,
+            chamado.categoria,
+            chamado.prioridade,
+            chamado.status,
+            chamado.data,
+            chamado.descricao
+        ].map(valor => `"${String(valor ?? "").replace(/"/g, '""')}"`).join(";")
+    );
+
+    const csv = "\uFEFF" + [cabecalho.join(";"), ...linhas].join("\r\n");
+
+    const arquivo = new Blob([csv], {
+        type: "text/csv;charset=utf-8;"
+    });
+
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(arquivo);
+
+    link.href = url;
+    link.download = "chamados-ti.csv";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    URL.revokeObjectURL(url);
+
+});
     </script>
 
 </body>
