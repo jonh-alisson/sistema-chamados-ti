@@ -258,6 +258,107 @@ function aplicarFiltros() {
 pesquisaProtocolo.addEventListener("input", aplicarFiltros);
 filtroStatus.addEventListener("change", aplicarFiltros);
 filtroPrioridade.addEventListener("change", aplicarFiltros);
+document.getElementById("gerarPDF").addEventListener("click", function() {
+
+    const escapar = texto => String(texto ?? "").replace(/[&<>"']/g, caractere => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    }[caractere]));
+
+    const relatorio = window.open("", "_blank");
+
+    if (!relatorio) {
+        alert("Permita a abertura de janelas pop-up para gerar o relatório.");
+        return;
+    }
+
+    const linhas = chamados.map(chamado => `
+        <tr>
+            <td>${escapar(chamado.protocolo)}</td>
+            <td>${escapar(chamado.nome)}</td>
+            <td>${escapar(chamado.categoria)}</td>
+            <td>${escapar(chamado.prioridade)}</td>
+            <td>${escapar(chamado.status)}</td>
+            <td>${escapar(chamado.data)}</td>
+            <td>${escapar(chamado.descricao)}</td>
+        </tr>
+    `).join("");
+
+    const conteudo = `
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Relatório de Chamados de TI</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    padding: 25px;
+                    color: #333;
+                }
+                h1 {
+                    color: #2563eb;
+                    text-align: center;
+                }
+                .data {
+                    text-align: right;
+                    margin-bottom: 25px;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-size: 11px;
+                }
+                th, td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                    text-align: left;
+                }
+                th {
+                    background: #2563eb;
+                    color: white;
+                }
+                @media print {
+                    body { padding: 0; }
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Relatório de Chamados de TI</h1>
+            <p class="data">Emitido em: ${new Date().toLocaleString("pt-BR")}</p>
+
+            <h3>Total de chamados: ${chamados.length}</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Protocolo</th>
+                        <th>Solicitante</th>
+                        <th>Categoria</th>
+                        <th>Prioridade</th>
+                        <th>Status</th>
+                        <th>Data</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${linhas}
+                </tbody>
+            </table>
+        </body>
+        </html>
+    `;
+
+    relatorio.onload = function() {
+        relatorio.focus();
+        relatorio.print();
+    };
+
+    relatorio.document.write(conteudo);
+    relatorio.document.close();
+}); 
     </script>
 
 </body>
