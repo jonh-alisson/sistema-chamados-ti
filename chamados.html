@@ -172,6 +172,44 @@ lista.appendChild(linha);
             });
 
         }
+        const pesquisaProtocolo = document.getElementById("pesquisaProtocolo");
+const filtroStatus = document.getElementById("filtroStatus");
+const filtroPrioridade = document.getElementById("filtroPrioridade");
+
+function aplicarFiltros() {
+    const termo = pesquisaProtocolo.value.toLowerCase().trim();
+    const statusSelecionado = filtroStatus.value;
+    const prioridadeSelecionada = filtroPrioridade.value;
+
+    const linhas = lista.querySelectorAll("tr");
+
+    linhas.forEach(linha => {
+        const protocolo = linha.cells[0].textContent.toLowerCase();
+        const prioridade = linha.cells[3].textContent.trim();
+
+        const seletorStatus = linha.cells[4].querySelector("select");
+        const statusAtual = seletorStatus
+            ? seletorStatus.value
+            : linha.cells[4].textContent.trim();
+
+        const correspondeProtocolo = protocolo.includes(termo);
+        const correspondeStatus =
+            !statusSelecionado || statusAtual === statusSelecionado;
+        const correspondePrioridade =
+            !prioridadeSelecionada || prioridade === prioridadeSelecionada;
+
+        linha.style.display =
+            correspondeProtocolo &&
+            correspondeStatus &&
+            correspondePrioridade
+                ? ""
+                : "none";
+    });
+}
+
+pesquisaProtocolo.addEventListener("input", aplicarFiltros);
+filtroStatus.addEventListener("change", aplicarFiltros);
+filtroPrioridade.addEventListener("change", aplicarFiltros);
     </script>
 
 </body>
