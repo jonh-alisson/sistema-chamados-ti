@@ -205,6 +205,13 @@ function aplicarFiltros() {
                 ? ""
                 : "none";
     });
+        const chamadosVisiveis = [...linhas].filter(
+        linha => linha.style.display !== "none"
+    ).length;
+
+    mensagem.textContent = chamadosVisiveis === 0
+        ? "Nenhum chamado encontrado com os filtros selecionados."
+        : "";
 }
 
 pesquisaProtocolo.addEventListener("input", aplicarFiltros);
