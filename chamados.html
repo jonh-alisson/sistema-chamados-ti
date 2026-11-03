@@ -330,6 +330,12 @@ document.getElementById("gerarPDF").addEventListener("click", function() {
             <p class="data">Emitido em: ${new Date().toLocaleString("pt-BR")}</p>
 
             <h3>Total de chamados: ${chamados.length}</h3>
+        <div class="resumo">
+            <h3>Resumo por situação</h3>
+            <p>Chamados abertos: ${chamados.filter(chamado => chamado.status === "Aberto").length}</p>
+            <p>Chamados em andamento: ${chamados.filter(chamado => chamado.status === "Em andamento").length}</p>
+            <p>Chamados concluídos: ${chamados.filter(chamado => chamado.status === "Concluído").length}</p>
+        </div>
 
             <table>
                 <thead>
