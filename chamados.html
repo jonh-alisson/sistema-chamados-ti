@@ -274,8 +274,18 @@ document.getElementById("gerarPDF").addEventListener("click", function() {
         alert("Permita a abertura de janelas pop-up para gerar o relatório.");
         return;
     }
+const termo = document.getElementById("pesquisaProtocolo").value.toLowerCase().trim();
 
-    const linhas = chamados.map(chamado => `
+const statusSelecionado = document.getElementById("filtroStatus").value;
+
+const prioridadeSelecionada = document.getElementById("filtroPrioridade").value;
+
+const chamadosFiltrados = chamados.filter(chamado =>
+    chamado.protocolo.toLowerCase().includes(termo) &&
+    (!statusSelecionado || chamado.status === statusSelecionado) &&
+    (!prioridadeSelecionada || chamado.prioridade === prioridadeSelecionada)
+);
+    const linhas = chamadosFiltrados.map(chamado => `
         <tr>
             <td>${escapar(chamado.protocolo)}</td>
             <td>${escapar(chamado.nome)}</td>
@@ -359,12 +369,12 @@ document.getElementById("gerarPDF").addEventListener("click", function() {
             <h1>Relatório de Chamados de TI</h1>
             <p class="data">Emitido em: ${new Date().toLocaleString("pt-BR")}</p>
 
-            <h3>Total de chamados: ${chamados.length}</h3>
+            <h3>Total de chamados: ${chamadosFiltrados.length}</h3>
         <div class="resumo">
             <h3>Resumo por situação</h3>
-            <p>Chamados abertos: ${chamados.filter(chamado => chamado.status === "Aberto").length}</p>
-            <p>Chamados em andamento: ${chamados.filter(chamado => chamado.status === "Em andamento").length}</p>
-            <p>Chamados concluídos: ${chamados.filter(chamado => chamado.status === "Concluído").length}</p>
+            <p>Chamados abertos: ${chamadosFiltrados.filter(chamado => chamado.status === "Aberto").length}</p>
+            <p>Chamados em andamento: ${chamadosFiltrados.filter(chamado => chamado.status === "Em andamento").length}</p>
+            <p>Chamados concluídos: ${chamadosFiltrados.filter(chamado => chamado.status === "Concluído").length}</p>
         </div>
 
             <table>
