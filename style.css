@@ -137,3 +137,23 @@ tbody tr:hover {
     margin-top: 20px;
     font-weight: bold;
 }
+/* Organização dos filtros */
+.filtros {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.filtros input,
+.filtros select {
+    margin-bottom: 0;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 700px) {
+    .filtros {
+        grid-template-columns: 1fr;
+    }
+}
