@@ -34,6 +34,11 @@
         <p id="chamadosAbertos">0</p>
     </div>
 
+    <div class="indicador">
+    <h3>Concluídos</h3>
+    <p id="chamadosConcluidos">0</p>
+</div>
+
 </div>
         <a href="index.html" class="botao-voltar">
             Voltar ao início
@@ -104,6 +109,9 @@
 
     document.getElementById("chamadosAbertos").textContent =
         chamados.filter(chamado => chamado.status === "Aberto").length;
+    document.getElementById("chamadosConcluidos").textContent =
+    chamados.filter(chamado => chamado.status === "Concluído").length;
+           
 }
 
 atualizarIndicadores(); 
