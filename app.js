@@ -48,6 +48,11 @@ document.getElementById("btnConsultarChamados").addEventListener("click", functi
     formularioConsulta.hidden = false;
 });
 
+document.getElementById("btnVoltarInicio").addEventListener("click", function() {
+    formularioConsulta.hidden = true;
+    telaInicial.hidden = false;
+});
+
 formularioConsulta.addEventListener("submit", function(event) {
     event.preventDefault();
 
