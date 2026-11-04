@@ -33,3 +33,17 @@ formulario.addEventListener("submit", function(event) {
 
     formulario.reset();
 });
+
+const telaInicial = document.getElementById("tela-inicial");
+const formularioChamado = document.getElementById("ticket-form");
+const formularioConsulta = document.getElementById("consulta-form");
+
+document.getElementById("btnAbrirChamado").addEventListener("click", function() {
+    telaInicial.hidden = true;
+    formularioChamado.hidden = false;
+});
+
+document.getElementById("btnConsultarChamados").addEventListener("click", function() {
+    telaInicial.hidden = true;
+    formularioConsulta.hidden = false;
+});
