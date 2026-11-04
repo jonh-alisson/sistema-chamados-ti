@@ -258,3 +258,9 @@ tbody tr:hover {
         align-items: flex-start;
     }
 }
+
+/* Espaçamento dos botões da consulta */
+#btnVoltarInicio {
+    display: block;
+    margin-top: 15px;
+}
