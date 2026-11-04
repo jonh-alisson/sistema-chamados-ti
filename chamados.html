@@ -178,11 +178,26 @@ atualizarIndicadores();
 
         coluna.appendChild(seletor);
 
-    } else {
+    } else if (indice === 3) {
 
-        coluna.textContent = valor || "-";
+    coluna.textContent = valor || "-";
+    coluna.style.fontWeight = "bold";
 
+    if (valor === "Baixa") {
+        coluna.style.color = "#16a34a";
+    } else if (valor === "Média") {
+        coluna.style.color = "#ca8a04";
+    } else if (valor === "Alta") {
+        coluna.style.color = "#ea580c";
+    } else if (valor === "Crítica") {
+        coluna.style.color = "#dc2626";
     }
+
+} else {
+
+    coluna.textContent = valor || "-";
+
+}
 
     linha.appendChild(coluna);
 
