@@ -14,12 +14,19 @@
 
     <p>Bem-vindo ao nosso sistema de suporte técnico!</p>
 
-    <div class="cabecalho-formulario">
-    <h2>Abrir novo chamado</h2>
-    <a href="chamados.html" class="botao-consultar">Consultar chamados</a>
+    <div id="tela-inicial" class="tela-inicial">
+    <h2>O que deseja fazer?</h2>
+
+    <button type="button" id="btnAbrirChamado">
+        Abrir um novo chamado
+    </button>
+
+    <button type="button" id="btnConsultarChamados">
+        Consultar meus chamados
+    </button>
 </div>
 
-    <form id="ticket-form">
+    <form id="ticket-form" hidden>
 
         <label for="nome">Nome do solicitante:</label>
         <input
@@ -66,7 +73,24 @@
         <button type="submit">Abrir chamado</button>
 
     </form>
-    
+    <form id="consulta-form" hidden>
+
+    <h2>Consultar meus chamados</h2>
+
+    <label for="consulta-email">Digite seu e-mail:</label>
+
+    <input
+        type="email"
+        id="consulta-email"
+        placeholder="Digite o e-mail utilizado na abertura"
+        required
+    >
+
+    <button type="submit">Consultar chamados</button>
+
+    <div id="resultado-consulta"></div>
+
+</form>
     <script src="app.js"></script>
 
 </body>
