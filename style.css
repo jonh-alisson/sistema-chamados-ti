@@ -217,3 +217,20 @@ tbody tr:hover {
         grid-template-columns: 1fr;
     }
 }
+/* Botão para consultar chamados */
+.botao-consultar {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.botao-consultar:hover {
+    background-color: #1d4ed8;
+}
