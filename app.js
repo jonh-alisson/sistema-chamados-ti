@@ -53,6 +53,11 @@ document.getElementById("btnVoltarInicio").addEventListener("click", function() 
     telaInicial.hidden = false;
 });
 
+document.getElementById("btnVoltarFormulario").addEventListener("click", function() {
+    formularioChamado.hidden = true;
+    telaInicial.hidden = false;
+});
+
 formularioConsulta.addEventListener("submit", function(event) {
     event.preventDefault();
 
