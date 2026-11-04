@@ -234,3 +234,27 @@ tbody tr:hover {
 .botao-consultar:hover {
     background-color: #1d4ed8;
 }
+/* Cabeçalho do formulário */
+.cabecalho-formulario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.cabecalho-formulario h2 {
+    margin: 0;
+}
+
+.cabecalho-formulario .botao-consultar {
+    margin: 0;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 700px) {
+    .cabecalho-formulario {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
