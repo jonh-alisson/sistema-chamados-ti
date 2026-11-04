@@ -47,3 +47,39 @@ document.getElementById("btnConsultarChamados").addEventListener("click", functi
     telaInicial.hidden = true;
     formularioConsulta.hidden = false;
 });
+
+formularioConsulta.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const emailInformado = document.getElementById("consulta-email").value.trim().toLowerCase();
+
+    const chamadosSalvos = JSON.parse(
+        localStorage.getItem("chamadosTI") || "[]"
+    );
+
+    const meusChamados = chamadosSalvos.filter(chamado =>
+        chamado.email.trim().toLowerCase() === emailInformado
+    );
+
+    const resultado = document.getElementById("resultado-consulta");
+
+    resultado.innerHTML = "";
+
+    if (meusChamados.length === 0) {
+        resultado.textContent = "Nenhum chamado encontrado para este e-mail.";
+        return;
+    }
+
+    resultado.innerHTML = "<h3>Meus chamados</h3>";
+
+    meusChamados.forEach(chamado => {
+        const item = document.createElement("p");
+
+        item.textContent =
+            "Protocolo: " + chamado.protocolo +
+            " | Categoria: " + chamado.categoria +
+            " | Status: " + chamado.status;
+
+        resultado.appendChild(item);
+    });
+});
