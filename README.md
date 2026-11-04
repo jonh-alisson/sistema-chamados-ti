@@ -7,7 +7,7 @@ Projeto desenvolvido como parte do meu portfólio na área de Análise e Desenvo
 ## Demonstração
 
 Acesse o sistema:
-https://jonh-alisson.github.io/sistema-chamados-ti/chamados.html
+https://jonh-alisson.github.io/sistema-chamados-ti/index.html
 
 ## Funcionalidades
 
