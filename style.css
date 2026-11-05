@@ -331,3 +331,11 @@ tbody tr:hover {
     display: block;
     clear: both;
 }
+
+#consulta-form button[type="submit"] {
+    float: left;
+}
+
+#consulta-form #btnVoltarInicio {
+    float: right;
+}
