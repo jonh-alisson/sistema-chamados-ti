@@ -264,3 +264,50 @@ tbody tr:hover {
     display: block;
     margin-top: 15px;
 }
+
+
+/* ===== Nova aparência da página inicial ===== */
+
+#tela-inicial {
+    max-width: 720px;
+    margin: 45px auto;
+    padding: 40px 35px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.09);
+    text-align: center;
+}
+
+#tela-inicial h2 {
+    margin: 0 0 30px;
+    color: #243b63;
+    font-size: 24px;
+}
+
+#tela-inicial button {
+    display: block;
+    width: 100%;
+    max-width: 430px;
+    margin: 16px auto;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #f4f8ff;
+    color: #2563eb;
+    border: 1px solid #d8e5fa;
+    font-size: 17px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+#tela-inicial button:hover {
+    background-color: #e5efff;
+    border-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+    #tela-inicial {
+        margin: 25px 5px;
+        padding: 28px 18px;
+    }
+}
