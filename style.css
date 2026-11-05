@@ -311,3 +311,23 @@ tbody tr:hover {
         padding: 28px 18px;
     }
 }
+
+/* Alinhamento dos botões da tela de consulta */
+#consulta-form button[type="submit"] {
+    display: inline-block;
+    width: auto;
+    margin: 16px 0;
+}
+
+#consulta-form #btnVoltarInicio {
+    display: inline-block;
+    width: auto;
+    float: right;
+    margin: 16px 0;
+}
+
+#consulta-form::after {
+    content: "";
+    display: block;
+    clear: both;
+}
