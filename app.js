@@ -57,6 +57,9 @@ document.getElementById("btnVoltarFormulario").addEventListener("click", functio
     formularioChamado.hidden = true;
     telaInicial.hidden = false;
 });
+document.getElementById("btnGestaoChamados").addEventListener("click", function() {
+    window.location.href = "chamados.html";
+});
 
 formularioConsulta.addEventListener("submit", function(event) {
     event.preventDefault();
