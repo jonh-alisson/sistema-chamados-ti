@@ -339,3 +339,20 @@ tbody tr:hover {
 #consulta-form #btnVoltarInicio {
     float: right;
 }
+
+/* Alinhamento dos botões da abertura de chamado */
+#ticket-form button[type="submit"] {
+    float: left;
+    width: auto;
+}
+
+#ticket-form #btnVoltarFormulario {
+    float: right;
+    width: auto;
+}
+
+#ticket-form::after {
+    content: "";
+    display: block;
+    clear: both;
+}
