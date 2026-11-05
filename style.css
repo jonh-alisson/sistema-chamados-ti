@@ -582,3 +582,48 @@ body:has(.painel-indicadores) > p {
 .filtros {
     border: 1px solid #e2e8f0;
 }
+
+/* ===== Acabamento profissional da página inicial ===== */
+
+#tela-inicial {
+    max-width: 760px;
+    margin: 55px auto;
+    padding: 45px 40px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 15px 35px rgba(30, 64, 175, 0.10);
+}
+
+#tela-inicial h2 {
+    font-size: 26px;
+    margin-bottom: 32px;
+    color: #1e3a8a;
+}
+
+#tela-inicial button {
+    min-height: 68px;
+    max-width: 480px;
+    padding: 20px 24px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8fbff, #eaf2ff);
+    border: 1px solid #d5e3fa;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.06);
+    font-size: 16px;
+}
+
+#tela-inicial button:hover {
+    background: linear-gradient(135deg, #eaf2ff, #dbeafe);
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.14);
+    transform: translateY(-3px);
+}
+
+@media (max-width: 700px) {
+    #tela-inicial {
+        margin: 30px auto;
+        padding: 30px 20px;
+    }
+
+    #tela-inicial button {
+        min-height: 60px;
+        font-size: 15px;
+    }
+}
