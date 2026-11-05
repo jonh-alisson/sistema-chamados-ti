@@ -547,3 +547,38 @@ h1 {
         font-size: 24px;
     }
 }
+
+/* ===== Acabamento final do painel ===== */
+
+body:has(.painel-indicadores) {
+    background: linear-gradient(135deg, #eef4fb, #f8fafc);
+}
+
+body:has(.painel-indicadores) h1 {
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 32px;
+    letter-spacing: -0.5px;
+}
+
+body:has(.painel-indicadores) > p {
+    margin-bottom: 35px;
+    font-size: 15px;
+}
+
+.painel-indicadores .indicador {
+    border-radius: 14px;
+    padding: 28px 20px;
+}
+
+.indicador:hover {
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.12);
+}
+
+.tabela-container {
+    border: 1px solid #e2e8f0;
+}
+
+.filtros {
+    border: 1px solid #e2e8f0;
+}
