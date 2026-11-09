@@ -627,3 +627,26 @@ body:has(.painel-indicadores) > p {
         font-size: 15px;
     }
 }
+
+/* Ajustes para telas de celular */
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 100%;
+        padding: 24px 18px;
+    }
+
+    form button,
+    form .botao-voltar {
+        display: block;
+        width: 100%;
+        margin: 12px 0 0;
+        text-align: center;
+    }
+
+}
