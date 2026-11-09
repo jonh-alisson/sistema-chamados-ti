@@ -641,12 +641,12 @@ body:has(.painel-indicadores) > p {
         padding: 24px 18px;
     }
 
-    #tela-inicial button,
-#tela-inicial .botao-voltar {
-    display: block;
-    width: 100%;
-    margin: 12px auto;
-    text-align: center;
+  #tela-inicial form button[type="submit"],
+#tela-inicial form #btnVoltarFormulario {
+    display: inline-block;
+    width: calc(50% - 8px);
+    margin: 12px 4px 0;
+    vertical-align: top;
     box-sizing: border-box;
 }
 
